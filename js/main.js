@@ -15,12 +15,13 @@ $(document).on('ready', function() {
       $('.form-input:eq('+i+')').val('');
     }
 
-    $('p:eq(0)').html('Subtotal: $' + parseInt(valueArray[0]).toFixed(2));
 
     var price = parseInt(valueArray[0]).toFixed(2);
     var tip = parseInt(valueArray[2]).toFixed(2);
     var tax = parseInt(valueArray[1]).toFixed(2);
     var total = calculateTip(price, tip) + parseInt(valueArray[0]) + calculateTax(price, tax);
+
+    $('p:eq(0)').html('Subtotal: $' + price);
 
     $('p:eq(1)').html('Tip: $'+ calculateTip(price, tip).toFixed(2));
 
